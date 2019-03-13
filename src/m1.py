@@ -175,7 +175,7 @@ def broken_1(circle, window):
       :type window: rg.RoseWindow
     """
     circle.attach_to(window)
-    circle2 = rg.Circle(circle.radius * 2)
+    circle2 = rg.Circle(circle.center, circle.radius * 2)
     circle2.attach_to(window)
     window.render()
 
@@ -199,7 +199,7 @@ def broken_2(x, y, window):
       :type y:      int
       :type window: rg.RoseWindow
       """
-    circle = rg.Circle((x, y), 33)
+    circle = rg.Circle(rg.Point(x, y), 33)
     circle.attach_to(window)
     window.render()
 
@@ -239,7 +239,10 @@ def broken_3(n, point, length, distance_between_lines, window):
         line = rg.Line(a, b)
         line.attach_to(window)
         window.render(0.5)
-        b = b + distance_between_lines
+        print(b)
+        b = rg.Point(b.x + distance_between_lines, b.y)
+        a = rg.Point(a.x + distance_between_lines, a.y)
+        # b = b + distance_between_lines
 
 
 # -----------------------------------------------------------------------------
